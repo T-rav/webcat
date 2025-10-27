@@ -73,7 +73,7 @@ jobs:
 
       - name: Upload coverage reports
         if: github.event_name == 'pull_request' || github.event_name == 'schedule'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: coverage-reports-${{ matrix.python-version }}
           path: docker/htmlcov/
@@ -101,7 +101,7 @@ jobs:
         run: make security-check
 
       - name: Upload security reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: always()
         with:
           name: security-reports
@@ -132,7 +132,7 @@ jobs:
         run: make audit
 
       - name: Upload audit report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: always()
         with:
           name: dependency-audit
